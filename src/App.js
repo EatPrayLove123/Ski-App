@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import SkiSlopeList from './components/SkiSlopeList';
+import Navbar from './components/Navbar';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import "./App.css"
+import Home from './pages/Home';
+import Austria from './pages/Austria';
+import Bulgaria from './pages/Bulgaria';
+import SignUp from './pages/SignUp';
+
 
 function App() {
+ 
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+         < Navbar/>
+      <Switch/>
+            <Route path='/' exact component={Home}/>
+            <Route path='/austria' exact component={Austria}/>
+            <Route path='/bulgaria' exact component={Bulgaria}/>
+            <Route path='/sign-up' exact component={SignUp}/>
+       <Switch/>
+
+      </Router>
+      
+    </>
   );
 }
 
